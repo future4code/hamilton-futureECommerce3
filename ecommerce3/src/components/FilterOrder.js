@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const FilterOrder = styled.div`
+const ContainerFilterOrder = styled.div`
 `
 
 
@@ -10,19 +10,20 @@ class FilterOrder extends React.Component {
         super(props);
 
     }
-}
 
-render(){
-    return (
-        <FilterOrder>
-            <span>Preço: </span>
-            <select>
-                <option>Decrescente</option>
-                <option>Crescente</option>
-            </select>
 
-        </FilterOrder>
+    render() {
+        return (
+            <ContainerFilterOrder>
+                <span>Preço: </span>
+                <select>
+                    <option>Decrescente</option>
+                    <option>Crescente</option>
+                </select>
 
-    )
+            </ContainerFilterOrder>
+
+        )
+    }
 }
 export default FilterOrder
