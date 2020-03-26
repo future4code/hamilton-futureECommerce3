@@ -64,13 +64,17 @@ class App extends React.Component {
         }
       ],
     }
-
   }
 
  
   render() {
-    
-    const produtosFoto = this.state.arrayProdutos.map((produto, index) => {
+
+    const copiaArrayProdutos = this.state.arrayProdutos.map(produto => {
+      return [...this.state.arrayProdutos]
+    })
+
+
+    const produtosCard = this.state.arrayProdutos.map((produto, index) => {
       return (
         <Card 
           nomeProduto = {produto.nome}
@@ -85,8 +89,8 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <div>{ produtosFoto }</div>
-        <FilterMinMax />
+{/*         <div>{ produtosCard }</div> */}
+        <FilterMinMax propsArrayProdutos = {copiaArrayProdutos} />
         <FilterOrder />
         <FilterSearch />
       </div>
