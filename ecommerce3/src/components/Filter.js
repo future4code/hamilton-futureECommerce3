@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 
-const ComponentFilterMinMax = styled.div`
+const ComponentFilter = styled.div`
     border: 1px solid blue;
 
 `;
-export class FilterMinMax extends React.Component {
+export class Filter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,10 +19,16 @@ export class FilterMinMax extends React.Component {
     }
 
 
+    onChangeFilterMax = (event) => {
+        this.props.alteraMax(event.target.value)
+    }
+
+
     render() {
         return (
-            <ComponentFilterMinMax>
-                <p>Valor Mínimo</p>
+            <ComponentFilter>
+                <h2>Filtros:</h2>
+                <p>Valor Mínimo:</p>
                 <input 
                     type="number"
                     min="0" 
@@ -32,18 +38,24 @@ export class FilterMinMax extends React.Component {
                 >                    
                 </input>
 
-                <p>Valor Máximo</p>
+                <p>Valor Máximo:</p>
                 <input 
                     type="number" 
                     min="0" 
                     max="10000"
-                    // value={this.state.filterMax}
-                    // onChange={this.onChangeFilterMax}
+                    value={this.props.filtroMaximo}
+                    onChange={this.onChangeFilterMax}
                 >                    
                 </input>
-            </ComponentFilterMinMax>
+
+                <p>Buscar Produto:</p>
+                <input 
+                   type="text"
+                >                    
+                </input>
+            </ComponentFilter>
         );
     }
 }
 
-export default FilterMinMax;
+export default Filter;
