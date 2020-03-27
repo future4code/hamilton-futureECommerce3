@@ -23,6 +23,7 @@ export class FilterMinMax extends React.Component {
     // }
 
     render() {
+
         // const listaFiltroMinMax = props.propsArrayProdutos.filter((produto) => {
         //     if (produto.valor >= this.state.filterMin) {
         //         return true

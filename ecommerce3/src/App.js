@@ -79,12 +79,14 @@ class App extends React.Component {
  
   render() {
 
+
   console.log(this.state.filterMin)
 
 
     // const copiaArrayProdutos = this.state.arrayProdutos.map(produto => {
     //   return [...this.state.arrayProdutos]
     // })
+
 
     const produtosCard = this.state.arrayProdutos.map((produto, index) => {
       return (
@@ -97,6 +99,7 @@ class App extends React.Component {
       );
     })
 
+
     return (
       <div className="App">
         <div>{ produtosCard }</div>
@@ -104,6 +107,22 @@ class App extends React.Component {
           alteraMin = {this.alteraMin}
           filtroMinimo = {this.state.filterMin}
         />
+=======
+    const copiaProdutosCard= this.state.produtosCard.map(produto => {
+      return [...this.state.produtosCard, produto]
+    })
+
+    const listaFiltroMinMax = copiaProdutosCard.filter (produto => {
+      return produto.valor >= //acessar o valor do input min
+      && produto.valor <= //acessa o valor do input max
+  })
+  
+    console.log("Resultado", listaFiltroMinMax)
+    
+    return (
+      <div className="App">
+{/*         <div>{ produtosCard }</div> */}
+        <FilterMinMax propsArrayProdutos = {this.state.arrayProdutos} />
         <FilterOrder />
         <FilterSearch />
       </div>
