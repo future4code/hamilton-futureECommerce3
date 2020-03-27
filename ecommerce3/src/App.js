@@ -2,9 +2,8 @@ import React from 'react';
 
 // import Basket from './components/Basket';
 import Card from './components/Card';
-import FilterMinMax from './components/FilterMinMax';
+import Filter from './components/Filter';
 import FilterOrder from './components/FilterOrder';
-import FilterSearch from './components/FilterSearch';
 import ListaProdutos from './components/ListaProdutos';
 
 import img1 from './img/1.jpg';
@@ -20,7 +19,7 @@ import img8 from './img/8.jpg';
 class App extends React.Component {
   constructor(props) {
     super(props)
-    
+
     this.state = {
       arrayProdutos: [
         {
@@ -64,48 +63,57 @@ class App extends React.Component {
           valor: 5740.75
         }
       ],
-      
+
       filterMin: null,
-      filterMax: null
+      filterMax: Infinity, 
     }
   }
 
   alteraMin = novoFilterMin => {
-    this.setState({
-      filterMin: novoFilterMin
-    })
+    if (novoFilterMin !== "") {
+      this.setState({
+        filterMin: novoFilterMin
+      })
+    } else {
+      this.setState({
+        filterMin: null
+      })
+    }
   }
 
+  alteraMax = novoFilterMax => {
+    if (novoFilterMax !== "") {
+      this.setState({
+        filterMax: novoFilterMax
+      })
+    } else {
+      this.setState({
+        filterMax: Infinity
+      })
+    }
+  }
 
- 
   render() {
-
-    /* const produtosCard = this.state.arrayProdutos.map((produto, index) => {
-      return (
-        <Card 
-          nomeProduto = {produto.nome}
-          fotoProduto = {produto.foto}
-          valorProduto = {produto.valor}
-          key = {index}
-        />
-      );
-    }) */
-
+    console.log("Valor filterMax:", this.state.filterMax)
 
     return (
       <div className="App">
-        {/* <div>{ produtosCard }</div> */}
-        <FilterMinMax 
-          alteraMin = {this.alteraMin}
-          filtroMinimo = {this.state.filterMin}
+        <Filter
+          alteraMin={this.alteraMin}
+          filtroMinimo={this.state.filterMin}
+          alteraMax={this.alteraMax}
+          filtroMaximo={this.state.filterMax}
         />
         <ListaProdutos
-        //props do valor dos filtros
-        filtroMinimo = {this.state.filterMin}
-        //props do arrayProdutos
-        arrayProdutos = {this.state.arrayProdutos}
-        //props da função alteraMin 
-        alteraMin = {this.alteraMin}
+          //props do valor dos filtros
+          filtroMinimo={this.state.filterMin}
+          //props do arrayProdutos
+          arrayProdutos={this.state.arrayProdutos}
+          //props da função alteraMin 
+          alteraMin={this.alteraMin}
+
+          filtroMaximo={this.state.filterMax}
+          alteraMax={this.alteraMax}
         />
       </div>
     );
