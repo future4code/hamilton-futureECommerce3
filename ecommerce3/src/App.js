@@ -63,16 +63,28 @@ class App extends React.Component {
           valor: 5740.75
         }
       ],
+      
+      filterMin: null,
+      filterMax: null
     }
   }
+
+  alteraMin = novoFilterMin => {
+    this.setState({
+      filterMin: novoFilterMin
+    })
+  }
+
 
  
   render() {
 
-    const copiaArrayProdutos = this.state.arrayProdutos.map(produto => {
-      return [...this.state.arrayProdutos]
-    })
+  console.log(this.state.filterMin)
 
+
+    // const copiaArrayProdutos = this.state.arrayProdutos.map(produto => {
+    //   return [...this.state.arrayProdutos]
+    // })
 
     const produtosCard = this.state.arrayProdutos.map((produto, index) => {
       return (
@@ -85,12 +97,13 @@ class App extends React.Component {
       );
     })
 
-    // console.log(produtosFoto)
-
     return (
       <div className="App">
-{/*         <div>{ produtosCard }</div> */}
-        <FilterMinMax propsArrayProdutos = {copiaArrayProdutos} />
+        <div>{ produtosCard }</div>
+        <FilterMinMax 
+          alteraMin = {this.alteraMin}
+          filtroMinimo = {this.state.filterMin}
+        />
         <FilterOrder />
         <FilterSearch />
       </div>
