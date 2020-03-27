@@ -5,6 +5,7 @@ import Card from './components/Card';
 import FilterMinMax from './components/FilterMinMax';
 import FilterOrder from './components/FilterOrder';
 import FilterSearch from './components/FilterSearch';
+import ListaProdutos from './components/ListaProdutos';
 
 import img1 from './img/1.jpg';
 import img2 from './img/2.jpg';
@@ -79,16 +80,7 @@ class App extends React.Component {
  
   render() {
 
-
-  console.log(this.state.filterMin)
-
-
-    // const copiaArrayProdutos = this.state.arrayProdutos.map(produto => {
-    //   return [...this.state.arrayProdutos]
-    // })
-
-
-    const produtosCard = this.state.arrayProdutos.map((produto, index) => {
+    /* const produtosCard = this.state.arrayProdutos.map((produto, index) => {
       return (
         <Card 
           nomeProduto = {produto.nome}
@@ -97,34 +89,24 @@ class App extends React.Component {
           key = {index}
         />
       );
-    })
+    }) */
 
 
     return (
       <div className="App">
-        <div>{ produtosCard }</div>
+        {/* <div>{ produtosCard }</div> */}
         <FilterMinMax 
           alteraMin = {this.alteraMin}
           filtroMinimo = {this.state.filterMin}
         />
-=======
-    const copiaProdutosCard= this.state.produtosCard.map(produto => {
-      return [...this.state.produtosCard, produto]
-    })
-
-    const listaFiltroMinMax = copiaProdutosCard.filter (produto => {
-      return produto.valor >= //acessar o valor do input min
-      && produto.valor <= //acessa o valor do input max
-  })
-  
-    console.log("Resultado", listaFiltroMinMax)
-    
-    return (
-      <div className="App">
-{/*         <div>{ produtosCard }</div> */}
-        <FilterMinMax propsArrayProdutos = {this.state.arrayProdutos} />
-        <FilterOrder />
-        <FilterSearch />
+        <ListaProdutos
+        //props do valor dos filtros
+        filtroMinimo = {this.state.filterMin}
+        //props do arrayProdutos
+        arrayProdutos = {this.state.arrayProdutos}
+        //props da função alteraMin 
+        alteraMin = {this.alteraMin}
+        />
       </div>
     );
   }
