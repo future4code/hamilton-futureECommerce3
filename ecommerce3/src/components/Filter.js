@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 
 const ComponentFilter = styled.div`
-    border: 1px solid blue;
-
+    border: 1px solid black;
+    padding: 15px;
 `;
 export class Filter extends React.Component {
     constructor(props) {
@@ -39,6 +39,7 @@ export class Filter extends React.Component {
                     max="10000"
                     value={this.props.filtroMinimo}
                     onChange={this.onChangeFilterMin}
+                    placeholder="Valor Mínimo"
                 >                    
                 </input>
 
@@ -49,6 +50,7 @@ export class Filter extends React.Component {
                     max="10000"
                     value={this.props.filtroMaximo}
                     onChange={this.onChangeFilterMax}
+                    placeholder="Valor Máximo"
                 >                    
                 </input>
 
@@ -57,6 +59,7 @@ export class Filter extends React.Component {
                    type="text"
                    value={this.props.filterItem}
                    onChange={this.onChangeFilterItem}
+                   placeholder="Digite o número"
                 >                    
                 </input>
             </ComponentFilter>
