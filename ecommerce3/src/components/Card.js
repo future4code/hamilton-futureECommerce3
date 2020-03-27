@@ -13,7 +13,6 @@ const CardButton = styled.button `
   background-color: black;
 `
 
-
 class Card extends React.Component {
     constructor (props) {
         super(props)

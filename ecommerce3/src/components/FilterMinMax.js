@@ -18,26 +18,8 @@ export class FilterMinMax extends React.Component {
         this.props.alteraMin(event.target.value)
     }
 
-    // onChangeFilterMax = (event) => {
-    //     this.setState({filterMax: (Number(event.target.value))})
-    // }
 
     render() {
-
-        // const listaFiltroMinMax = props.propsArrayProdutos.filter((produto) => {
-        //     if (produto.valor >= this.state.filterMin) {
-        //         return true
-        //     }
-
-        //     if(produto.valor <= this.state.filterMax) {
-        //         return true
-        //     }
-        // })
-        
-
-        // console.log("Resultado", listaFiltroMinMax)
-        // console.log(this.state.filterMin)
-
         return (
             <ComponentFilterMinMax>
                 <p>Valor Mínimo</p>
