@@ -23,6 +23,10 @@ export class Filter extends React.Component {
         this.props.alteraMax(event.target.value)
     }
 
+    onChangeFilterItem = (event) => {
+        this.props.alteraItem(event.target.value)
+    }
+
 
     render() {
         return (
@@ -51,6 +55,8 @@ export class Filter extends React.Component {
                 <p>Buscar Produto:</p>
                 <input 
                    type="text"
+                   value={this.props.filterItem}
+                   onChange={this.onChangeFilterItem}
                 >                    
                 </input>
             </ComponentFilter>
