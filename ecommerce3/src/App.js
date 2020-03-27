@@ -66,6 +66,7 @@ class App extends React.Component {
 
       filterMin: null,
       filterMax: Infinity, 
+      filterItem: ""
     }
   }
 
@@ -93,8 +94,12 @@ class App extends React.Component {
     }
   }
 
+  alteraItem = novoValorItem => {
+    this.setState({filterItem: novoValorItem})
+  }
+
   render() {
-    console.log("Valor filterMax:", this.state.filterMax)
+    console.log("Valor item", this.state.filterItem)
 
     return (
       <div className="App">
@@ -103,17 +108,24 @@ class App extends React.Component {
           filtroMinimo={this.state.filterMin}
           alteraMax={this.alteraMax}
           filtroMaximo={this.state.filterMax}
+          alteraItem={this.alteraItem}
+          filterItem={this.state.filterItem}
         />
         <ListaProdutos
-          //props do valor dos filtros
-          filtroMinimo={this.state.filterMin}
           //props do arrayProdutos
           arrayProdutos={this.state.arrayProdutos}
+          //props do valor dos filtros
+          filtroMinimo={this.state.filterMin}
           //props da função alteraMin 
           alteraMin={this.alteraMin}
-
+          //props do valor dos filtros
           filtroMaximo={this.state.filterMax}
+          //props da função alteraMin 
           alteraMax={this.alteraMax}
+          //props da função alteraItem
+          alteraItem={this.alteraItem}
+          //props do valor do filtro item
+          filterItem={this.state.filterItem}
         />
       </div>
     );

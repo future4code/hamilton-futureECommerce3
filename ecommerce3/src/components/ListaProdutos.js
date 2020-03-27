@@ -9,21 +9,24 @@ class ListaProdutos extends React.Component {
     
     render() {
         
-        //essa variável filtra o arrayProdutos (estado com os dados dos produtos). Compara o valor do input (this.props.filtroMinimo) com o valor de cadaProduto (cadaProduto.valor). Retorna uma nova lista (listaMinimo). 
+        //essa variável filtra o arrayProdutos (estado com os dados dos produtos). Compara o valor dos inputs (this.props.filtroMinimo e this.props.filtroMaximo) com o valor de cadaProduto (cadaProduto.valor). Retorna uma nova lista (lista filtrada). 
         const listaMinimoMaximo = this.props.arrayProdutos.filter(cadaProduto => {
+
             if ((cadaProduto.valor >= this.props.filtroMinimo) 
                 && (cadaProduto.valor <= this.props.filtroMaximo)) {
                 return true
             }
-
             /* return listaOrdernacao = (listaMinimoMaximo) => {
-
             } */
 
+            if(cadaProduto.nome === (this.props.filterItem)) {
+                return true
+            }
         })
 
 
-        //listaCardMin vai mapear a listaMinino e retornar o Compente Card. 
+
+        //listaCardMin vai mapear a listaMininoMaximo e retornar o Compente Card. 
         const listaFiltrada = listaMinimoMaximo.map((cadaProduto, index) => {
             return (
                 <Card
