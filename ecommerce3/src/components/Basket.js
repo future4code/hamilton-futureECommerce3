@@ -3,6 +3,14 @@ import styled from "styled-components";
 //Adcionei o componene Card aqui
 import Card from './Card'
 
+// Container Basket
+const ContainerBasket = styled.div`
+  border: 2px solid black;
+  display:flex;
+  flex-direction: column;
+  padding: 8px;
+`
+
 class Basket extends React.Component {
     constructor(props) {
         super(props)
@@ -18,10 +26,10 @@ renderizaCarrinho = () => {
 renderizarTotal = () => {
     let soma = 0;
     const somatorio = this.props.arrayCarrinho.forEach(elemento => {
-        soma =soma + elemento.valor
+        soma = soma + elemento.valor
         return soma
      });
-    return (<p>Total:{soma}</p>)
+    return (<p>Total: <strong>R$ {soma}</strong></p>)
 }
 
 render() {
@@ -34,11 +42,5 @@ render() {
     )
  }
 }
-// Container Basket
-const ContainerBasket = styled.div`
-  border: 2px dotted black;
-  display:flex;
-  flex-direction: column;
-  padding: 8px
-`
+
 export default Basket;

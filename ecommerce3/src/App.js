@@ -19,7 +19,8 @@ import img8 from './img/8.jpg';
 //ícone do carrinho
 
 const ContainerAPP = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
 `
 
 class App extends React.Component {

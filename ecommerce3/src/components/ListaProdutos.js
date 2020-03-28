@@ -5,7 +5,6 @@ import Card from './Card'
 const ContainerListaProdutos = styled.div `
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    gap: 9%;
 `
 
 
