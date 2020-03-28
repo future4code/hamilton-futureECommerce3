@@ -112,9 +112,6 @@ class App extends React.Component {
     this.setState({filtroOrdenado: novaOrdem})
   }
 
-  render() {
-    console.log(this.state.filtroOrdenado)
-
   // Percorrendo a lista pra equiparar com clique do usuário
   adicionarCarrinho = (nomeProduto) => {
     const filtraProduto = this.state.arrayProdutos.filter(elemento => {
@@ -124,8 +121,11 @@ class App extends React.Component {
     const carrinhoCheio = [...this.state.arrayCarrinho, filtraProduto[0]]
     this.setState({arrayCarrinho: carrinhoCheio})
   }
- 
+  
   render() {
+    console.log(this.state.filtroOrdenado)
+
+
     return (
       <ContainerAPP>
         <Filter
