@@ -2,6 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import Card from './Card'
 
+const ContainerListaProdutos = styled.div `
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    gap: 9%;
+`
+
 
 class ListaProdutos extends React.Component {
     constructor(props) {
@@ -36,7 +42,9 @@ class ListaProdutos extends React.Component {
         })
 
         return (
-            <div> {listaFiltrada} </div>
+            <ContainerListaProdutos>
+                 {listaFiltrada}
+            </ContainerListaProdutos>
         )
     }
 }

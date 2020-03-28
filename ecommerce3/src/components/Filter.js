@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 
 const ComponentFilter = styled.div`
-    border: 1px solid black;
     padding: 15px;
 `;
 export class Filter extends React.Component {
@@ -31,7 +30,7 @@ export class Filter extends React.Component {
     render() {
         return (
             <ComponentFilter>
-                <h2>Filtros:</h2>
+                <h2>Filtros</h2>
                 <p>Valor Mínimo:</p>
                 <input 
                     type="number"
