@@ -28,22 +28,22 @@ class ListaProdutos extends React.Component {
             if (nomeProduto.includes(this.props.filterItem)) {
                 return true
             }
-        }).sort(function (a, b) {
-            switch (this.props.filtroOrdenado) {
-                case "crescente": {
-                    if (a.valor > b.valor) {
-                        return -1;
-                    }
-                }
-                case "decrescente": {
-                    if (a.valor < b.valor) {
-                        return 1;
-                      }
-                }
-                case "": {
-                    return 0;
-                }
-            }
+        // }).sort(function (a, b) {
+        //     switch (this.props.filtroOrdenado) {
+        //         case "crescente": {
+        //             if (a.valor > b.valor) {
+        //                 return -1;
+        //             }
+        //         }
+        //         case "decrescente": {
+        //             if (a.valor < b.valor) {
+        //                 return 1;
+        //               }
+        //         }
+        //         case "": {
+        //             return 0;
+        //         }
+        //     }
           });
 
         //listaCardMin vai mapear a listaMininoMaximo e retornar o Compente Card. 
