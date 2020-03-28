@@ -5,6 +5,7 @@ import Card from './components/Card';
 import Filter from './components/Filter';
 import FilterOrder from './components/FilterOrder';
 import ListaProdutos from './components/ListaProdutos';
+import styled from "styled-components";
 
 import img1 from './img/1.jpg';
 import img2 from './img/2.jpg';
@@ -15,6 +16,9 @@ import img6 from './img/6.png';
 import img7 from './img/7.png';
 import img8 from './img/8.jpg';
 
+const ContainerAPP = styled.div`
+    display: flex;
+`
 
 class App extends React.Component {
   constructor(props) {
@@ -99,10 +103,8 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("Valor item", this.state.filterItem)
-
     return (
-      <div className="App">
+      <ContainerAPP>
         <Filter
           alteraMin={this.alteraMin}
           filtroMinimo={this.state.filterMin}
@@ -127,7 +129,7 @@ class App extends React.Component {
           //props do valor do filtro item
           filterItem={this.state.filterItem}
         />
-      </div>
+      </ContainerAPP>
     );
   }
 }

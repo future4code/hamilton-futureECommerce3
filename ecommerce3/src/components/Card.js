@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 
 const ContainerLista = styled.section`
-
 `
 
 const CardContainer = styled.div` 
@@ -11,11 +10,13 @@ const CardContainer = styled.div`
   width: 200px;
 `
 const CardImagem = styled.img` 
-  height: 200px;
+  width: 200px;
+  object-fit: cover;
 `
 const CardButton = styled.button`
   color: white;
   background-color: black;
+  padding: 15px;
   width: 200px;
 `
 
