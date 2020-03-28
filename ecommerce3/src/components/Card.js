@@ -25,6 +25,10 @@ class Card extends React.Component {
     super(props)
   }
 
+ //2 Adicionei onClick 
+ adicionaProduto = (nomeProduto) => {
+   this.props.adicionarCarrinhoCard(nomeProduto)
+ }
 
   render() {
     return (
@@ -33,7 +37,7 @@ class Card extends React.Component {
           <CardImagem src={this.props.fotoProduto} />
           <p>{this.props.nomeProduto}</p>
           <p>R$ {this.props.valorProduto}</p>
-          <CardButton>Adicionar ao Carrinho</CardButton>
+          <CardButton onClick = {()=> this.adicionaProduto(this.props.nomeProduto)}>Adicionar ao Carrinho</CardButton>
         </CardContainer>
       </ContainerLista>
     )

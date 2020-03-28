@@ -62,6 +62,8 @@ export class Filter extends React.Component {
                    placeholder="Digite o número"
                 >                    
                 </input>
+
+                
             </ComponentFilter>
         );
     }

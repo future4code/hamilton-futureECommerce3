@@ -22,7 +22,7 @@ class ListaProdutos extends React.Component {
                 return true
             }
         })
-
+      
         //listaCardMin vai mapear a listaMininoMaximo e retornar o Compente Card. 
         const listaFiltrada = listaMinimoMaximo.map((cadaProduto, index) => {
             return (
@@ -31,6 +31,8 @@ class ListaProdutos extends React.Component {
                     fotoProduto={cadaProduto.foto}
                     valorProduto={cadaProduto.valor}
                     key={index}
+                    //Adcionando a prop do Lista do Produto para o Card
+                    adicionarCarrinhoCard = {this.props.adicionarCarrinho}
                 />
             )
         })
