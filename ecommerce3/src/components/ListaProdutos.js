@@ -5,7 +5,6 @@ import Card from './Card'
 const ContainerListaProdutos = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    gap: 9%;
 `
 const ContainerFilterOrder = styled.div`
 `
@@ -47,7 +46,6 @@ class ListaProdutos extends React.Component {
             }
           });
 
-
         //listaCardMin vai mapear a listaMininoMaximo e retornar o Compente Card. 
         const listaFiltrada = listaMinimoMaximo.map((cadaProduto, index) => {
             return (
@@ -56,6 +54,8 @@ class ListaProdutos extends React.Component {
                     fotoProduto={cadaProduto.foto}
                     valorProduto={cadaProduto.valor}
                     key={index}
+                    //Adcionando a prop do Lista do Produto para o Card
+                    adicionarCarrinhoCard = {this.props.adicionarCarrinho}
                 />
             )
         })

@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import Basket from './components/Basket';
+import Basket from './components/Basket';
 import Card from './components/Card';
 import Filter from './components/Filter';
 import FilterOrder from './components/FilterOrder';
@@ -15,9 +15,12 @@ import img5 from './img/5.png';
 import img6 from './img/6.png';
 import img7 from './img/7.png';
 import img8 from './img/8.jpg';
+// import icon from '../img/icon.png';
+//ícone do carrinho
 
 const ContainerAPP = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
 `
 
 class App extends React.Component {
@@ -71,7 +74,8 @@ class App extends React.Component {
       filterMin: null,
       filterMax: Infinity, 
       filterItem: "",
-      filtroOrdenado: ""
+      filtroOrdenado: "",
+      arrayCarrinho:[]
     }
   }
 
@@ -103,12 +107,25 @@ class App extends React.Component {
     this.setState({filterItem: novoValorItem})
   }
 
+
   alteraOrdem = novaOrdem => {
     this.setState({filtroOrdenado: novaOrdem})
   }
 
   render() {
     console.log(this.state.filtroOrdenado)
+
+  // Percorrendo a lista pra equiparar com clique do usuário
+  adicionarCarrinho = (nomeProduto) => {
+    const filtraProduto = this.state.arrayProdutos.filter(elemento => {
+      return elemento.nome === nomeProduto
+    })
+    // index[0] serve para não ter bug e renderizar essa nova lista futuramente, queremos sóo objeto
+    const carrinhoCheio = [...this.state.arrayCarrinho, filtraProduto[0]]
+    this.setState({arrayCarrinho: carrinhoCheio})
+  }
+ 
+  render() {
     return (
       <ContainerAPP>
         <Filter
@@ -140,6 +157,12 @@ class App extends React.Component {
           filtroOrdenado={this.state.filtroOrdenado}
           //props da função alteraOrdem
           alteraOrdem={this.alteraOrdem}
+          //props da função adicionar produtos ao carrinho
+          adicionarCarrinho={this.adicionarCarrinho}
+        />
+        <Basket
+         //props do array com produtos adicionados pelo usuário
+        arrayCarrinho={this.state.arrayCarrinho}
         />
       </ContainerAPP>
     );
