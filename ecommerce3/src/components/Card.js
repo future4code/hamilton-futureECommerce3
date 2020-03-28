@@ -8,16 +8,25 @@ const ContainerLista = styled.section`
 const CardContainer = styled.div` 
   border: 2px dotted orange;
   width: 200px;
+  height: 370px;
+  padding: 10px;
 `
 const CardImagem = styled.img` 
-  width: 200px;
+  width: 100%;
+  height: 65%;
   object-fit: cover;
 `
 const CardButton = styled.button`
   color: white;
   background-color: black;
-  padding: 15px;
+  padding: 10px;
   width: 200px;
+  border: none;
+  
+  :hover{
+    cursor: pointer;
+    background-color: orange;
+  }
 `
 
 class Card extends React.Component {
