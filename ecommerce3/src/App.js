@@ -70,7 +70,8 @@ class App extends React.Component {
 
       filterMin: null,
       filterMax: Infinity, 
-      filterItem: ""
+      filterItem: "",
+      filtroOrdenado: ""
     }
   }
 
@@ -102,7 +103,12 @@ class App extends React.Component {
     this.setState({filterItem: novoValorItem})
   }
 
+  alteraOrdem = novaOrdem => {
+    this.setState({filtroOrdenado: novaOrdem})
+  }
+
   render() {
+    console.log(this.state.filtroOrdenado)
     return (
       <ContainerAPP>
         <Filter
@@ -112,6 +118,8 @@ class App extends React.Component {
           filtroMaximo={this.state.filterMax}
           alteraItem={this.alteraItem}
           filterItem={this.state.filterItem}
+          alteraOrdem={this.alteraOrdem}
+          filtroOrdenado={this.state.filtroOrdenado}
         />
         <ListaProdutos
           //props do arrayProdutos
@@ -128,6 +136,10 @@ class App extends React.Component {
           alteraItem={this.alteraItem}
           //props do valor do filtro item
           filterItem={this.state.filterItem}
+          //props do filtro ordenado
+          filtroOrdenado={this.state.filtroOrdenado}
+          //props da função alteraOrdem
+          alteraOrdem={this.alteraOrdem}
         />
       </ContainerAPP>
     );

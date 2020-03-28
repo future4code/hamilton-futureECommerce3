@@ -9,7 +9,7 @@ export class Filter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+
         }
     }
 
@@ -26,41 +26,56 @@ export class Filter extends React.Component {
         this.props.alteraItem(event.target.value)
     }
 
+    onChangeFilterOrdem = (event) => {
+        this.props.alteraOrdem(event.target.value)
+    }
+
 
     render() {
         return (
             <ComponentFilter>
                 <h2>Filtros</h2>
                 <p>Valor Mínimo:</p>
-                <input 
+                <input
                     type="number"
-                    min="0" 
+                    min="0"
                     max="10000"
                     value={this.props.filtroMinimo}
                     onChange={this.onChangeFilterMin}
                     placeholder="Valor Mínimo"
-                >                    
+                >
                 </input>
 
                 <p>Valor Máximo:</p>
-                <input 
-                    type="number" 
-                    min="0" 
+                <input
+                    type="number"
+                    min="0"
                     max="10000"
                     value={this.props.filtroMaximo}
                     onChange={this.onChangeFilterMax}
                     placeholder="Valor Máximo"
-                >                    
+                >
                 </input>
 
                 <p>Buscar Produto:</p>
-                <input 
-                   type="text"
-                   value={this.props.filterItem}
-                   onChange={this.onChangeFilterItem}
-                   placeholder="Digite o número"
-                >                    
+                <input
+                    type="text"
+                    value={this.props.filterItem}
+                    onChange={this.onChangeFilterItem}
+                    placeholder="Digite o número"
+                >
                 </input>
+                <br></br>
+                <br></br>
+                <span>Preço: </span>
+                <select
+                value={this.props.filtroOrdenado}
+                onChange={this.onChangeFilterOrdem}                   
+                >
+                    <option value="">Nenhum</option>
+                    <option value="crescente">Crescente</option>
+                    <option value="decrescente">Decrescente</option>
+                </select>
             </ComponentFilter>
         );
     }
