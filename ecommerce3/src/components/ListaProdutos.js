@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import Card from './Card'
 
-const ContainerListaProdutos = styled.div `
+const ContainerListaProdutos = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 25%);
+`
+const ContainerFilterOrder = styled.div`
 `
 
 
@@ -26,8 +28,24 @@ class ListaProdutos extends React.Component {
             if (nomeProduto.includes(this.props.filterItem)) {
                 return true
             }
-        })
-      
+        }).sort(function (a, b) {
+            switch (this.props.filtroOrdenado) {
+                case "crescente": {
+                    if (a.valor > b.valor) {
+                        return -1;
+                    }
+                }
+                case "decrescente": {
+                    if (a.valor < b.valor) {
+                        return 1;
+                      }
+                }
+                case "": {
+                    return 0;
+                }
+            }
+          });
+
         //listaCardMin vai mapear a listaMininoMaximo e retornar o Compente Card. 
         const listaFiltrada = listaMinimoMaximo.map((cadaProduto, index) => {
             return (
@@ -43,9 +61,12 @@ class ListaProdutos extends React.Component {
         })
 
         return (
-            <ContainerListaProdutos>
-                 {listaFiltrada}
-            </ContainerListaProdutos>
+            <section>            
+                <p>Quantidade de produtos: {listaFiltrada.length} </p>
+                <ContainerListaProdutos>
+                    {listaFiltrada}
+                </ContainerListaProdutos>
+            </section>
         )
     }
 }

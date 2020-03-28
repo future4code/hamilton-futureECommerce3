@@ -74,8 +74,8 @@ class App extends React.Component {
       filterMin: null,
       filterMax: Infinity, 
       filterItem: "",
+      filtroOrdenado: "",
       arrayCarrinho:[]
-      
     }
   }
 
@@ -106,6 +106,15 @@ class App extends React.Component {
   alteraItem = novoValorItem => {
     this.setState({filterItem: novoValorItem})
   }
+
+
+  alteraOrdem = novaOrdem => {
+    this.setState({filtroOrdenado: novaOrdem})
+  }
+
+  render() {
+    console.log(this.state.filtroOrdenado)
+
   // Percorrendo a lista pra equiparar com clique do usuário
   adicionarCarrinho = (nomeProduto) => {
     const filtraProduto = this.state.arrayProdutos.filter(elemento => {
@@ -117,7 +126,6 @@ class App extends React.Component {
   }
  
   render() {
-    // console.log(this.state.arrayCarrinho) -> Verificu array carrinho
     return (
       <ContainerAPP>
         <Filter
@@ -127,6 +135,8 @@ class App extends React.Component {
           filtroMaximo={this.state.filterMax}
           alteraItem={this.alteraItem}
           filterItem={this.state.filterItem}
+          alteraOrdem={this.alteraOrdem}
+          filtroOrdenado={this.state.filtroOrdenado}
         />
         <ListaProdutos
           //props do arrayProdutos
@@ -143,13 +153,16 @@ class App extends React.Component {
           alteraItem={this.alteraItem}
           //props do valor do filtro item
           filterItem={this.state.filterItem}
+          //props do filtro ordenado
+          filtroOrdenado={this.state.filtroOrdenado}
+          //props da função alteraOrdem
+          alteraOrdem={this.alteraOrdem}
           //props da função adicionar produtos ao carrinho
           adicionarCarrinho={this.adicionarCarrinho}
         />
         <Basket
          //props do array com produtos adicionados pelo usuário
         arrayCarrinho={this.state.arrayCarrinho}
-
         />
       </ContainerAPP>
     );
